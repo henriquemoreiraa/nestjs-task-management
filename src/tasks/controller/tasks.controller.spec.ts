@@ -1,25 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TasksController } from './tasks.controller';
-import { User } from '../../auth/user.entity';
-import { Task } from '../tasks.entity';
 import { TaskStatus } from '../tasks-status.enum';
 import { TasksService } from '../service/tasks.service';
 import { NotFoundException } from '@nestjs/common';
-
-const mockUser: User = {
-  id: '1',
-  username: 'mockUsertest',
-  password: '123',
-  tasks: [],
-};
-
-const mockTask: Task = {
-  id: '1',
-  name: 'task test',
-  description: 'description test',
-  status: TaskStatus.PENDING,
-  user: mockUser,
-};
+import { mockTask } from '../../../test/mock/task.mock';
+import { mockUser } from '../../../test/mock/user.mock';
 
 const mockTaskService = {
   getTasks: jest.fn((x) => x),

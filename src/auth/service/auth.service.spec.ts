@@ -1,15 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { UserRepository } from '../user.repository';
-import { AuthCredentialsDto } from '../dto/auth-credentials.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { UnauthorizedException } from '@nestjs/common';
-
-const mockAuthCredentialsDto: AuthCredentialsDto = {
-  username: 'mockUsertest',
-  password: '123',
-};
+import { mockAuthCredentialsDto } from '../../../test/mock/auth.mock';
 
 describe('UsersService', () => {
   let service: AuthService;
